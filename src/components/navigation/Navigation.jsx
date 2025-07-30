@@ -8,8 +8,8 @@ export default function Navbar() {
 
   return (
     <nav className="w-[90%] flex justify-center py-4 mx-auto bg-[#f5f5f5] relative z-10">
-      <div className="fixed  w-[90%]  bg-white rounded-full shadow-md px-8 py-2 flex items-center justify-between flex-row-reverse gap-4 ">
-        
+      {/* <div className="fixed  w-[90%]  bg-white rounded-full shadow-md px-8 py-2 flex items-center justify-between flex-row-reverse gap-4 "> */}
+      <div className="fixed top-0 left-1/2 transform -translate-x-1/2 w-[90%] bg-white rounded-full shadow-md px-8 py-2 flex items-center justify-between flex-row-reverse gap-4 z-10">
     
         <div dir='rtl' className="flex items-center gap-2">
           <img src={NavigationLogo} alt="Teknova Logo" className="lg:w-8 h-6 lg:w-20 lg:h-16" />
@@ -52,7 +52,8 @@ export default function Navbar() {
         </button>
 
 
-        <div className="lg:hidden">
+        {/* <div className="lg:hidden"> */}
+        <div className="lg:hidden relative z-20">
           <button className='cursor-pointer' onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
             {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
