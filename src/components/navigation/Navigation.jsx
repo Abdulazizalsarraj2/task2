@@ -12,7 +12,7 @@ export default function Navbar() {
         
     
         <div dir='rtl' className="flex items-center gap-2">
-          <img src={NavigationLogo} alt="Teknova Logo" className="w-20 h-16" />
+          <img src={NavigationLogo} alt="Teknova Logo" className="lg:w-8 h-6 lg:w-20 lg:h-16" />
           <div className="leading-tight">
             <h1 className="text-[#362963] font-bold text-[32px]">تكنوفا</h1>
             <p className="text-sm text-[#8C6AF9]">حلول رقمية متطورة</p>
