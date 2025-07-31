@@ -19,7 +19,7 @@ const HeroSection = () => {
    
         <div className="w-full lg:w-1/2 flex justify-center my-10 lg:mb-0">
             
-              <img src={CircleLines} alt="" className=" hidden absolute -top-[150px] -left-[170px] z-0 w-[600px] lg:block " />
+              <img src={CircleLines} alt="" className=" hidden absolute -top-[150px] -left-[170px] z-0 w-[600px] lg:block opacity-[7%] " />
           
           <div className="relative z-1 bg-white border border-[#D7D4E0] rounded-3xl p-8 shadow-xl max-w-[300px] h-[400px] flex items-center justify-center mt-12">
            
