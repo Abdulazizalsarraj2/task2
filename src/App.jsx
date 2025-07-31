@@ -10,13 +10,15 @@ import AreYouReady from './components/are-you-ready/AreYouReady'
 const App = () => {
   return (
     <>
+      <div className='w-full overflow-hidden'>
       <Navigation />
       <HeroSection />
       <ServicesSection />
       <AboutUs />
       <WhyUs />
       <AreYouReady />
-      <Footer />
+        <Footer />
+      </div>
     </>
     
   )
