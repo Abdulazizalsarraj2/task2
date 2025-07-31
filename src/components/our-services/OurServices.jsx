@@ -72,7 +72,7 @@ export default function ServicesSection() {
               <img src={icon} className=" w-10 h-10 absolute -top-6 -right-5" />
         
             <h3 className="font-bold text-[#4A3F75] text-[12px] md:text-sm mb-2">{title}</h3>
-            <p className="text-sm text-gray-600 leading-relaxed">{description}</p>
+            <p className="text-[12px] md:text-lg text-gray-600 leading-relaxed">{description}</p>
 
             <div className="flex gap-3 items-center">
             <div className="text-sm text-[#6161FF] mt-4 cursor-pointer hover:underline">اطلب الخدمة</div>

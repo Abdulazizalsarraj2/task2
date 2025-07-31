@@ -59,8 +59,8 @@ export default function Navbar() {
 
    
       {mobileMenuOpen && (
-        <div className="lg:hidden absolute top-20 w-[calc(100%-2rem)] max-w-md bg-white rounded-xl mx-auto shadow-md px-6 py-4 z-40 right-1/2 transform translate-x-1/2">
-          <ul className="flex flex-col items-end gap-4 text-sm text-gray-800 font-medium">
+        <div className="lg:hidden fixed top-20 inset-x-0 mx-auto w-[calc(100%-2rem)] max-w-md bg-white rounded-xl shadow-md px-6 py-4 z-50">  
+        <ul className="flex flex-col items-end gap-4 text-sm text-gray-800 font-medium">
             <li className="hover:text-[#6A35FF] cursor-pointer" onClick={() => setMobileMenuOpen(false)}>
               <a href='#'>الرئيسية</a>
             </li>
