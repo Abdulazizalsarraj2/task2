@@ -19,14 +19,14 @@ const HeroSection = () => {
    
         <div className="w-full lg:w-1/2 flex justify-center my-10 lg:mb-0">
             
-              <img src={CircleLines} alt="" className=" hidden absolute -top-[190px] -left-[220px] z-0 w-[600px] lg:block " />
+              <img src={CircleLines} alt="" className=" hidden absolute -top-[150px] -left-[170px] z-0 w-[600px] lg:block " />
           
-          <div className="relative z-1 bg-white border border-[#D7D4E0] rounded-3xl p-8 shadow-xl w-[300px] h-[400px] flex items-center justify-center">
+          <div className="relative z-1 bg-white border border-[#D7D4E0] rounded-3xl p-8 shadow-xl max-w-[300px] h-[400px] flex items-center justify-center mt-12">
            
         
            
     
-            <div className="flex flex-col items-center ">
+            <div className="flex flex-col items-center justify-center ">
         
               <img src={cardLogo} alt="Teknova Logo" className="mb-4 w-[80%] " />
 

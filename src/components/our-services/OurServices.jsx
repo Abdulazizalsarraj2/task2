@@ -66,12 +66,12 @@ export default function ServicesSection() {
         {services.map(({ title, description, icon }, idx) => (
           <div
             key={idx}
-            className="relative bg-gradient-to-r from-[#ECE6FE] to-[#FBFAFF] rounded-tl-[150px] shadow-sm  p-8 text-right transition hover:shadow-md lg:w-full w-[90%] mx-auto"
+            className="relative bg-gradient-to-r from-[#ECE6FE] to-[#FBFAFF] rounded-tl-[150px] shadow-sm  p-8 text-right transition hover:shadow-md w-[85%] md:w-[90%] mx-auto"
           >
           
               <img src={icon} className=" w-10 h-10 absolute -top-6 -right-5" />
         
-            <h3 className="font-bold text-[#4A3F75] lg:text-[16px] text-sm mb-2">{title}</h3>
+            <h3 className="font-bold text-[#4A3F75] text-[12px] md:text-sm mb-2">{title}</h3>
             <p className="text-sm text-gray-600 leading-relaxed">{description}</p>
 
             <div className="flex gap-3 items-center">
