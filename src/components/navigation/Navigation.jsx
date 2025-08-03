@@ -1,50 +1,72 @@
-import { useState } from 'react';
+import { useState, useEffect  } from 'react';
 import { Menu, X } from 'lucide-react';
 import NavigationLogo from "../../assets/Group 3.svg"
-import PhoneIcon from "../../assets/Vector (3).svg"
+import PhoneIcon from "../../assets/Group 1.svg"
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => {
+      setScrolled(window.scrollY > 0);
+    };
+    window.addEventListener('scroll', onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   return (
-    <nav className="w-full flex justify-center py-4 px-4 mx-auto bg-[#f5f5f5] relative z-10 sm:px-6 lg:px-8">
-      <div className="fixed top-4 w-[90%] bg-white rounded-full shadow-md px-4 py-2 flex items-center justify-between flex-row-reverse gap-2 sm:px-6 lg:px-8 lg:gap-4">
+    <nav className="relative z-20 w-full flex justify-center py-4 px-4 mx-auto sm:px-6 lg:px-8">
+   <div
+        className={`
+          fixed top-4 w-[90%]
+          rounded-full shadow-md
+          px-4 py-5
+          flex items-center justify-between flex-row-reverse gap-2
+          sm:px-6 lg:px-9 lg:gap-4
+          transition-all duration-300 ease-in-out
+
+          ${scrolled
+            ? 'bg-white/80 backdrop-blur-md'
+            : 'bg-white'}
+        `}
+      >
     
         <div dir='rtl' className="flex items-center gap-2">
-          <img src={NavigationLogo} alt="Teknova Logo" className="w-8 h-6 sm:w-10 sm:h-8 lg:w-20 lg:h-16" />
+          <img src={NavigationLogo} alt="Teknova Logo" className="w-8 h-6 sm:w-10 sm:h-8 lg:w-16 lg:h-12" />
           <div className="leading-tight">
-            <h1 className="text-[#362963] font-bold text-xl sm:text-2xl lg:text-[32px]">تكنوفا</h1>
-            <p className="text-xs text-[#8C6AF9] sm:text-sm">حلول رقمية متطورة</p>
+            <h1 className="text-[#362963] font-bold text-lg sm:text-xl lg:text-2xl">تكنوفا</h1>
+            <p className="text-xs text-[#8C6AF9]">حلول رقمية متطورة</p>
           </div>
         </div>
 
-       
-        <ul className="hidden lg:flex items-center gap-6 text-sm lg:text-[18px] text-gray-800 font-medium flex-row-reverse">
-          <li className="hover:text-[#6A35FF] cursor-pointer">
+      
+        <ul className="hidden lg:flex items-center gap-6 text-sm lg:text-[16px] text-[#120E23] font-medium flex-row-reverse">
+          <li className="hover:text-[#6A35FF] hover:font-semibold cursor-pointer">
             <a href='#'>الرئيسية</a>
           </li>
-          <li className="hover:text-[#6A35FF] cursor-pointer">
+          <li className="hover:text-[#6A35FF] hover:font-semibold cursor-pointer">
             <a href='#our-services'>خدماتنا</a>
           </li>
-          <li className="hover:text-[#6A35FF] cursor-pointer">
+          <li className="hover:text-[#6A35FF] hover:font-semibold cursor-pointer">
             <a href='#about-us'>من نحن</a>
           </li>
-          <li className="hover:text-[#6A35FF] cursor-pointer">
+          <li className="hover:text-[#6A35FF] hover:font-semibold cursor-pointer">
             <a href='#our-team'>الفريق</a>
           </li>
-          <li className="hover:text-[#6A35FF] cursor-pointer">
+          <li className="hover:text-[#6A35FF] hover:font-semibold cursor-pointer">
             <a href='#'>الأعمال</a>
           </li>
-          <li className="hover:text-[#6A35FF] cursor-pointer">
+          <li className="hover:text-[#6A35FF] hover:font-semibold cursor-pointer">
             <a href='#request-a-service'>اطلب خدمة</a>
           </li>
-          <li className="hover:text-[#6A35FF] cursor-pointer">
+          <li className="hover:text-[#6A35FF] hover:font-semibold cursor-pointer">
             <a href='#contact-us'>تواصل معنا</a>
           </li>
         </ul>
 
         
-        <button dir='rtl' className="hidden lg:flex items-center gap-2 bg-[#9E7BFF] text-white text-sm px-6 py-2 rounded-full shadow hover:bg-[#835eff] transition-all">
+        <button dir='rtl' className="hidden lg:flex items-center gap-2 bg-[#9E7BFF] text-white text-sm px-5 py-2 rounded-full shadow hover:bg-[#53419E] transition-all cursor-pointer">
           <img src={PhoneIcon} alt="phone-icon" className='w-4 ml-1' />
           <span className="material-icons text-base">ابدأ الآن</span>
         </button>

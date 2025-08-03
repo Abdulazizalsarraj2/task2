@@ -1,5 +1,6 @@
 import React from 'react'
-import PhoneIcon from "../../assets/Vector (3).svg"
+import PhoneIcon from "../../assets/Group 1.svg"
+
 
 const AreYouReady = () => {
   return (
@@ -27,12 +28,12 @@ const AreYouReady = () => {
         </p>
         
   
-        <button className="bg-[#7E60E2] hover:bg-[#867ea0] text-white font-medium rounded-full 
+        <button className="bg-[#7E60E2] hover:bg-[#53419E] transition-all cursor-pointer text-white font-medium rounded-full 
                           px-5 py-2 flex items-center justify-center
                           sm:px-6 sm:py-3
                           lg:mt-[56px]">
           ابدأ مشروعك الآن
-          <img src={PhoneIcon} className="w-5 h-5 mr-2 text-white" />
+          <img src={PhoneIcon} className="w-5 h-5 ml-2 text-white" />
         </button>
       </div>
     </div>

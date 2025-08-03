@@ -108,7 +108,12 @@ import {
   MessageCircle
 } from 'lucide-react';
 
-import FooterLogo from "../../assets/Group 81.svg"
+
+import FooterLogo from "../../assets/Footer-logo.svg"
+import WhatsappIcon from "../../assets/whatsapp-icon.svg"
+import InstagramIcon from "../../assets/instagram-icon.svg"
+import FacebookIcon from "../../assets/facebook-icon.svg"
+
 
 export default function Footer() {
   return (
@@ -132,8 +137,8 @@ export default function Footer() {
             </div>
           </div>
           <div className="hidden lg:block border-l border-white/30 h-64 mx-8"></div>
-          <div className="w-full lg:w-1/4 flex flex-col items-center lg:items-end gap-6">
-            <h3 className="text-base font-semibold lg:translate-x-[80px]">روابط مهمة</h3>
+          <div className="w-full lg:w-1/4 flex flex-col items-center  gap-6">
+            <h3 className="text-base font-semibold lg:translate-x-[40px]">روابط مهمة</h3>
             <div className="flex gap-14 text-white/90 text-center lg:text-end">
               <ul className="flex flex-col space-y-6">
                 <li><a href="#" className="hover:text-white transition">الرئيسية</a></li>
@@ -149,29 +154,29 @@ export default function Footer() {
             </div>
           </div>
           <div className="hidden lg:block border-l border-white/30 h-64 mx-8"></div>
-          <div className="w-full lg:w-2/4 flex flex-col items-center lg:items-start gap-6 text-center lg:text-end">
-            <h3 className="text-base font-semibold lg:-translate-x-[90px]">خدماتنا</h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-14 gap-y-6 text-white/90 w-full">
+          <div className="w-full lg:w-2/4 flex flex-col items-center lg:items-start gap-6 text-center lg:text-start">
+            <h3 className="text-base font-semibold ">خدماتنا</h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2  gap-y-7 text-[#EFEDF8] w-full text-[13px]">
               <span>تصميم وتطوير المواقع</span>
               <span>تصميم واجهات وتجربة المستخدم (UI/UX)</span>
               <span>برمجة تطبيقات الموبايل</span>
-              <span>حلول الأنظمة الداخلية (CMS / CRM / ERP)</span>
+              <span>حلول الأنظمة الداخلية (ERP / CRM / CMS)</span>
               <span>التصميم الإبداعي (جرافيك وموشن)</span>
               <span>التحول الرقمي والتحليل الاستشاري</span>
               <span>الاستضافة والبنية التحتية والحماية</span>
-              <span>التكامل مع الأنظمة والخدمات (AI / Payment / APIs)</span>
+              <span className='lg:inline-flex lg:w-[280px]'>التكامل مع الأنظمة والخدمات (AI / Payment / APIs)</span>
             </div>
           </div>
         </div>
         <div className="mt-8">
           <div className="flex items-center">
-            <div className="flex-grow border-t border-white/30"></div>
-            <div className="flex gap-6 px-4">
-              <a href="#" aria-label="Whatsapp" className="hover:opacity-80 transition"><MessageCircle size={20} /></a>
-              <a href="#" aria-label="Facebook" className="hover:opacity-80 transition"><Facebook size={20} /></a>
-              <a href="#" aria-label="Instagram" className="hover:opacity-80 transition"><Instagram size={20} /></a>
+            <div className="flex-grow border-1 border-white"></div>
+            <div className="flex gap-4 px-4 -translate-y-1">
+              <a href="#" aria-label="Instagram" className="hover:opacity-80 transition"><img src={InstagramIcon} alt="instagram-icon" className='size-6' /></a>
+              <a href="#" aria-label="Facebook" className="hover:opacity-80 transition"><img src={FacebookIcon} alt="facebook-icon" className='size-6' /></a>
+              <a href="#" aria-label="Whatsapp" className="hover:opacity-80 transition"><img src={WhatsappIcon} alt="whatsapp-icon" className='size-6' /></a>
             </div>
-            <div className="flex-grow border-t border-white/30"></div>
+            <div className="flex-grow  border-1 border-white "></div>
           </div>
           <p className="text-center text-white/80 text-xs pt-4">
             جميع الحقوق محفوظة © 2025 |{' '}

@@ -46,7 +46,7 @@ const WhyUs = () => {
           </h1>
 
 
-          <p className='mx-auto text-xl text-[#7B7790] font-medium mt-6 lg:mt-8 w-full sm:w-[90%] md:w-[80%] lg:w-[600px] px-2 sm:px-0'>
+          <p className='mx-auto text-xl leading-[1.75] text-[#7B7790] font-medium mt-6 lg:mt-8 w-full sm:w-[90%] md:w-[80%] lg:w-[600px] px-2 sm:px-0'>
               نتميز بخبرة عالية وتقنيات حديثة لتقديم حلول رقمية استثنائية تساعدك على تحقيق أهدافك
           </p>
 

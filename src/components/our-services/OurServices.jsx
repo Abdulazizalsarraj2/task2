@@ -59,20 +59,22 @@ export default function ServicesSection() {
     <section dir="rtl" id="our-services" className="py-16 px-4 bg-[#FBFAFF]">
       <div className="mb-12">
       <h1 className='text-transparent text-5xl bg-clip-text bg-gradient-to-r from-[#6161ff] to-[#8c6af9] font-bold text-[48px] text-center leading-normal mb-2'> خدماتنا المميزة</h1>
-      <div className="h-1 w-32 mx-auto mt-2 bg-gradient-to-r from-[#6161ff] to-[#8c6af9] rounded-full" /> 
+      <div className="h-[5px] w-32 mx-auto -mt-[6px] bg-gradient-to-r from-[#6161ff] to-[#8c6af9] rounded-full" /> 
       </div>
       
-      <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto">
+      <div className="grid gap-y-14 gap-x-2 md:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto">
         {services.map(({ title, description, icon }, idx) => (
           <div
             key={idx}
-            className="relative bg-gradient-to-r from-[#ECE6FE] to-[#FBFAFF] rounded-tl-[150px] shadow-sm  p-8 text-right transition hover:shadow-md w-[85%] md:w-[90%] mx-auto"
+            className="relative bg-gradient-to-r from-[#ECE6FE] to-[#FBFAFF] rounded-[6px] rounded-tl-[150px] shadow-sm  p-8 text-right transition hover:shadow-md w-[85%] md:w-[90%] mx-auto ring-[0.1px] ring-[#362963]"
           >
           
-              <img src={icon} className=" w-10 h-10 absolute -top-6 -right-5" />
+              <img src={icon} className=" w-13 h-13 absolute -top-7 -right-7" />
         
-            <h3 className="font-bold text-[#4A3F75] text-[12px] md:text-sm mb-2">{title}</h3>
-            <p className="text-[12px] md:text-lg text-gray-600 leading-relaxed">{description}</p>
+              <h3 className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#362963] to-[#7056CC] text-[12px] md:text-sm mb-2">
+  {title}
+</h3>
+            <p className="text-xs md:text-[14px] text-gray-600 leading-relaxed">{description}</p>
 
             <div className="flex gap-3 items-center">
             <div className="text-sm text-[#6161FF] mt-4 cursor-pointer hover:underline">اطلب الخدمة</div>
