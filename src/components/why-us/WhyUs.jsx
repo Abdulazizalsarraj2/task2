@@ -30,7 +30,7 @@ const services = [
 
 const WhyUs = () => {
   return (
-    <div className='w-full text-center bg-[#F5F5F5] pb-16 lg:pb-0 lg:h-[600px]'>
+    <div className='w-full text-center  pb-16 lg:pb-0 lg:h-[600px]'>
       
 
       <div className="w-full mx-auto px-4 sm:px-6 lg:px-8 pt-12 lg:pt-16">

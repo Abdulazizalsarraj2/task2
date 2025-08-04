@@ -4,7 +4,7 @@ import teamImage2 from "../../assets/team-section/11.png"
 const AboutUs = () => {
   return (
     <>
-      <section id='about-us' className='h-[800px] bg-[#F5F5F5]'>
+      <section id='about-us' className='h-[800px] mt-10'>
     <div className='w-full text-center h-80 mt-4'>
       <h1 className='text-transparent text-5xl bg-clip-text bg-gradient-to-r from-[#6161ff] to-[#8c6af9] font-bold text-4xl lg:text-[48px] text-center leading-normal mb-2'>من نحن؟</h1>
       <div className="h-[5px] w-32 mx-auto -mt-[6px] bg-gradient-to-r from-[#6161ff] to-[#8c6af9] rounded-full" /> 

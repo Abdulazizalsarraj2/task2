@@ -4,8 +4,8 @@ import PhoneIcon from "../../assets/Group 1.svg"
 
 const AreYouReady = () => {
   return (
-    <div id='request-a-service' className='w-full bg-[#F5F5F5] py-12 lg:py-0 lg:h-96'>
-      <div className='bg-white w-[90%] mx-auto text-center flex flex-col items-center justify-center rounded-4xl shadow-2xl 
+    <div id='request-a-service' className='w-full my-10  py-12 lg:py-0 lg:h-96'>
+      <div className='bg-white w-[90%] mx-auto text-center flex flex-col items-center justify-center rounded-4xl drop-shadow-[0_4px_10px_rgba(0,0,0,0.15)] 
                      py-8 px-6 
                      md:py-12 md:px-12 
                      lg:pt-4 lg:h-80 lg:px-[100px]'>
