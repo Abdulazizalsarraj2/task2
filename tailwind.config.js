@@ -10,6 +10,7 @@ module.exports = {
           primary: "#5B5BFF",
           secondary: "#B56DFF",
           'purple-700': '#5D3EBF',
+          'text-2': '#7B7790',
         },
         dropShadow: {
           'purple-glow': '0 0 75px rgba(140, 106, 249, 0.1)',
