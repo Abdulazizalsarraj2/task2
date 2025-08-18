@@ -31,7 +31,7 @@ export default function AuthLayout({ title, subtitle, children, titleSize = "4xl
                 {title}
               </h1>
               {subtitle && (
-                <p dir="rtl" className="text-sm text-text-2 mb-10">
+                <p dir="rtl" className="text-sm text-text-2 mb-10 leading-relaxed">
                   {subtitle}
                 </p>
               )}

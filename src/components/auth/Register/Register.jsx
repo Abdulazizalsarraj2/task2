@@ -60,11 +60,12 @@ export default function Register() {
   return (
     <AuthLayout
       title="حساب جديد في Teknova"
+      titleSize=" md:text-[36px]"
       subtitle={
-        <>
+        <div className="text-[15px]">
           ادخل البيانات التالية حتى تتمكن من انشاء حساب جديد في موقع{" "}
           <span className="text-text-2 font-bold">شركة Teknova البرمجية</span>
-        </>
+        </div>
       }
     >
       <form className="-mt-1" onSubmit={handleSubmit(onSubmit)}>
