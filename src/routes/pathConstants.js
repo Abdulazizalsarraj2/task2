@@ -4,6 +4,7 @@ const PathConstants = {
   Team: "/team",
   Academy: "/academy",
   PlaylistDetails: "/playlist/:id",
+  Portfolio: "/portfolio",
     // auth
     // Verify: "/verify",
     Register: "/register",

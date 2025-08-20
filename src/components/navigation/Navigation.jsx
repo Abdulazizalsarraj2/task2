@@ -251,7 +251,16 @@ export default function Navbar() {
               </NavLink>
             </li>
             <li className="hover:text-[#6A35FF] hover:font-semibold cursor-pointer">
-              <a href="#">الأعمال</a>
+            <NavLink
+                to="/portfolio"
+                className={({ isActive }) =>
+                  `hover:text-[#6A35FF] hover:font-semibold cursor-pointer ${
+                    isActive ? "text-[#6A35FF] font-semibold" : ""
+                  }`
+                }
+              >
+                الأعمال
+              </NavLink>
             </li>
             <li>
               <NavLink
@@ -275,13 +284,23 @@ export default function Navbar() {
             </li>
           </ul>
 
-          <button
-            dir="rtl"
-            className="hidden lg:flex items-center gap-2 bg-[#9E7BFF] text-white text-xs xl:text-sm px-3 py-1 lg:px-5 lg:py-2 rounded-full shadow hover:bg-[#53419E] transition-all cursor-pointer"
-          >
-            <img src={PhoneIcon} alt="phone-icon" className="w-4 ml-1" />
-            <span className="material-icons text-base">ابدأ الآن</span>
-          </button>
+          {/* أزرار التحكم */}
+          <div className="hidden lg:flex items-center gap-3">
+            <button
+              onClick={() => navigate("/login")}
+              className="border border-text-2 text-text-1 hover:bg-[#362963] hover:text-white transition-all font-medium rounded-full px-3 xl:px-5 py-2 flex items-center justify-center cursor-pointer text-sm xl:text-base"
+            >
+              تسجيل الدخول
+            </button>
+
+            <button
+              dir="rtl"
+              className="flex items-center gap-2 bg-[#9E7BFF] text-white text-xs xl:text-sm px-3 py-1 lg:px-5 lg:py-2 rounded-full shadow hover:bg-[#53419E] transition-all cursor-pointer"
+            >
+              <img src={PhoneIcon} alt="phone-icon" className="w-4 ml-1" />
+              <span className="material-icons text-sm xl:text-base">ابدأ الآن</span>
+            </button>
+          </div>
 
           <div className="lg:hidden">
             <button
@@ -351,7 +370,17 @@ export default function Navbar() {
                 </NavLink>
               </li>
               <li className="hover:text-[#6A35FF] cursor-pointer">
-                <a href="#">الأعمال</a>
+              <NavLink
+                  to="/portfolio"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className={({ isActive }) =>
+                    `hover:text-[#6A35FF] cursor-pointer ${
+                      isActive ? "text-[#6A35FF] font-semibold" : ""
+                    }`
+                  }
+                >
+                  الأعمال
+                </NavLink>
               </li>
               <li>
                 <NavLink
@@ -374,17 +403,33 @@ export default function Navbar() {
                   تواصل معنا
                 </button>
               </li>
-              <button
-                dir="rtl"
-                className="flex items-center gap-2 bg-[#9E7BFF] text-white text-sm px-4 py-2 rounded-full shadow hover:bg-[#835eff] transition-all w-fit mt-2"
-              >
-                <img
-                  src={PhoneIcon}
-                  alt="phone-icon"
-                  className="w-3 h-3 ml-1"
-                />
-                <span className="material-icons text-sm">ابدأ الآن</span>
-              </button>
+
+        {/* أزرار التحكم في الموبايل بجانب بعض */}
+        <div className="flex flex-row-reverse items-center  gap-3 w-full mt-2">
+        
+                <button
+                  dir="rtl"
+                  className="flex items-center gap-2 bg-[#9E7BFF] text-white text-sm px-4 py-2 rounded-full shadow hover:bg-[#835eff] transition-all"
+                >
+                  <img
+                    src={PhoneIcon}
+                    alt="phone-icon"
+                    className="w-3 h-3 ml-1"
+                  />
+                  <span className="material-icons text-sm">ابدأ الآن</span>
+                </button>
+
+                <button
+                  onClick={() => {
+                    setMobileMenuOpen(false);
+                    navigate("/login");
+                  }}
+                  className="border border-text-2 text-text-1 hover:bg-[#362963] hover:text-white transition-all font-medium rounded-full px-4 py-2 flex items-center justify-center cursor-pointer text-sm"
+                >
+                  تسجيل الدخول
+                </button>
+
+              </div>
             </ul>
           </div>
         )}
@@ -392,3 +437,4 @@ export default function Navbar() {
     </>
   );
 }
+
