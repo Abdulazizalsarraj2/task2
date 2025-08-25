@@ -1,4 +1,4 @@
-import { errorToaster } from "../helpers/toasterConfiguration";
+// import { errorToaster } from "../helpers/toasterConfiguration";
 
 const ERRORS_OBJECT = {
   400: "400Error",

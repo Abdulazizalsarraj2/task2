@@ -117,13 +117,19 @@ import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import NavigationLogo from "../../assets/Group 3.svg";
 import PhoneIcon from "../../assets/Group 1.svg";
-import { NavLink, useNavigate } from "react-router-dom";
 import CircleLines from "../../assets/Group 16.svg";
+
+import { NavLink, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { logoutUser } from "../../store/auth/action/logoutAction";
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
 
   useEffect(() => {
     const onScroll = () => {
@@ -151,19 +157,12 @@ export default function Navbar() {
     setMobileMenuOpen(false);
   };
 
+  const handleLogout = () => {
+    dispatch(logoutUser());
+    navigate("/login");
+  };
+
   return (
-    // <>
-    // {/* إضافة طبقة خلفية ثابتة للموقع كله */}
-    // <div className="fixed inset-0 z-0 pointer-events-none">
-    //   <img
-    //     src={CircleLines}
-    //     alt=""
-    //     className="hidden absolute -top-[110px] -left-[140px] w-[600px] lg:block opacity-[7%]"
-    //   />
-    // </div>
-
-    // <nav className="relative z-50 w-full flex justify-center py-4 px-4 sm:px-6 lg:px-8 mx-auto">
-
     <>
       <img
         src={CircleLines}
@@ -171,18 +170,17 @@ export default function Navbar() {
         className="hidden absolute -top-[110px] -left-[140px] -z-50 w-[600px] lg:block opacity-[7%]"
       />
       <nav className="relative z-50 w-full flex justify-center py-4 px-4 sm:px-6 lg:px-8 mx-auto">
-        {/* تم نقل صورة CircleLines هنا بنفس الخصائص */}
-
         <div
           className={`
-          fixed top-4 w-[90%]
-          rounded-full shadow-md
-          px-4 py-5 sm:px-6 lg:px-9
-          flex items-center justify-between flex-row-reverse gap-2 lg:gap-4
-          transition-all duration-300 ease-in-out
-          ${scrolled ? "bg-white/80 backdrop-blur-md" : "bg-white"}
-        `}
+            fixed top-4 w-[90%]
+            rounded-full shadow-md
+            px-4 py-5 sm:px-6 lg:px-9
+            flex items-center justify-between flex-row-reverse gap-2 lg:gap-4
+            transition-all duration-300 ease-in-out
+            ${scrolled ? "bg-white/80 backdrop-blur-md" : "bg-white"}
+          `}
         >
+          {/* Logo */}
           <div dir="rtl" className="flex items-center gap-2">
             <img
               src={NavigationLogo}
@@ -197,6 +195,7 @@ export default function Navbar() {
             </div>
           </div>
 
+          {/* Desktop Menu */}
           <ul className="hidden lg:flex items-center gap-6 text-sm lg:text-[13px] xl:text-[16px] text-[#120E23] font-medium flex-row-reverse">
             <li>
               <NavLink
@@ -250,8 +249,8 @@ export default function Navbar() {
                 الفريق
               </NavLink>
             </li>
-            <li className="hover:text-[#6A35FF] hover:font-semibold cursor-pointer">
-            <NavLink
+            <li>
+              <NavLink
                 to="/portfolio"
                 className={({ isActive }) =>
                   `hover:text-[#6A35FF] hover:font-semibold cursor-pointer ${
@@ -284,24 +283,36 @@ export default function Navbar() {
             </li>
           </ul>
 
-          {/* أزرار التحكم */}
+          {/* Desktop Buttons */}
           <div className="hidden lg:flex items-center gap-3">
-            <button
-              onClick={() => navigate("/login")}
-              className="border border-text-2 text-text-1 hover:bg-[#362963] hover:text-white transition-all font-medium rounded-full px-3 xl:px-5 py-2 flex items-center justify-center cursor-pointer text-sm xl:text-base"
-            >
-              تسجيل الدخول
-            </button>
+            {!isAuthenticated ? (
+              <button
+                onClick={() => navigate("/login")}
+                className="border border-text-2 text-text-1 hover:bg-[#362963] hover:text-white transition-all font-medium rounded-full px-3 xl:px-5 py-2 flex items-center justify-center cursor-pointer text-sm xl:text-base"
+              >
+                تسجيل الدخول
+              </button>
+            ) : (
+              <button
+                onClick={handleLogout}
+                className="border border-red-500 text-red-500 hover:bg-red-500 hover:text-white transition-all font-medium rounded-full px-3 xl:px-5 py-2 flex items-center justify-center cursor-pointer text-sm xl:text-base"
+              >
+                تسجيل الخروج
+              </button>
+            )}
 
             <button
               dir="rtl"
               className="flex items-center gap-2 bg-[#9E7BFF] text-white text-xs xl:text-sm px-3 py-1 lg:px-5 lg:py-2 rounded-full shadow hover:bg-[#53419E] transition-all cursor-pointer"
             >
               <img src={PhoneIcon} alt="phone-icon" className="w-4 ml-1" />
-              <span className="material-icons text-sm xl:text-base">ابدأ الآن</span>
+              <span className="material-icons text-sm xl:text-base">
+                ابدأ الآن
+              </span>
             </button>
           </div>
 
+          {/* Mobile Menu Toggle */}
           <div className="lg:hidden">
             <button
               className="cursor-pointer p-1"
@@ -312,6 +323,7 @@ export default function Navbar() {
           </div>
         </div>
 
+        {/* Mobile Menu */}
         {mobileMenuOpen && (
           <div className="lg:hidden fixed top-24 inset-x-0 mx-auto w-[90%] max-w-md bg-white rounded-xl shadow-md px-6 py-4 z-50">
             <ul className="flex flex-col items-end gap-4 text-sm text-text-1 font-medium">
@@ -369,8 +381,8 @@ export default function Navbar() {
                   الفريق
                 </NavLink>
               </li>
-              <li className="hover:text-[#6A35FF] cursor-pointer">
-              <NavLink
+              <li>
+                <NavLink
                   to="/portfolio"
                   onClick={() => setMobileMenuOpen(false)}
                   className={({ isActive }) =>
@@ -404,9 +416,8 @@ export default function Navbar() {
                 </button>
               </li>
 
-        {/* أزرار التحكم في الموبايل بجانب بعض */}
-        <div className="flex flex-row-reverse items-center  gap-3 w-full mt-2">
-        
+              {/* Mobile Buttons */}
+              <div className="flex flex-row-reverse items-center gap-3 w-full mt-2">
                 <button
                   dir="rtl"
                   className="flex items-center gap-2 bg-[#9E7BFF] text-white text-sm px-4 py-2 rounded-full shadow hover:bg-[#835eff] transition-all"
@@ -419,16 +430,27 @@ export default function Navbar() {
                   <span className="material-icons text-sm">ابدأ الآن</span>
                 </button>
 
-                <button
-                  onClick={() => {
-                    setMobileMenuOpen(false);
-                    navigate("/login");
-                  }}
-                  className="border border-text-2 text-text-1 hover:bg-[#362963] hover:text-white transition-all font-medium rounded-full px-4 py-2 flex items-center justify-center cursor-pointer text-sm"
-                >
-                  تسجيل الدخول
-                </button>
-
+                {!isAuthenticated ? (
+                  <button
+                    onClick={() => {
+                      setMobileMenuOpen(false);
+                      navigate("/login");
+                    }}
+                    className="border border-text-2 text-text-1 hover:bg-[#362963] hover:text-white transition-all font-medium rounded-full px-4 py-2 flex items-center justify-center cursor-pointer text-sm"
+                  >
+                    تسجيل الدخول
+                  </button>
+                ) : (
+                  <button
+                    onClick={() => {
+                      setMobileMenuOpen(false);
+                      handleLogout();
+                    }}
+                    className="border border-red-500 text-red-500 hover:bg-red-500 hover:text-white transition-all font-medium rounded-full px-4 py-2 flex items-center justify-center cursor-pointer text-sm"
+                  >
+                    تسجيل الخروج
+                  </button>
+                )}
               </div>
             </ul>
           </div>
@@ -437,4 +459,3 @@ export default function Navbar() {
     </>
   );
 }
-
