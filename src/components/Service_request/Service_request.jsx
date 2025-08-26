@@ -276,6 +276,8 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { GET, POST } from "../../services/http.service";
 import { successToaster, errorToaster } from "../../helpers/toasterConfiguration"; // استدعاء التوستر
+import dateIcon from "../../assets/Group 69.svg"
+
 
 const usePage = () => ({
   props: {
@@ -412,6 +414,32 @@ const ServiceRequest = () => {
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
+
+  const CustomDateInput = React.forwardRef(
+    ({ value, onClick, placeholder, id, name, onChange }, ref) => {
+      return (
+        <div className="relative">
+          {/* أيقونة التاريخ داخل الحقل من اليسار */}
+          <img
+            src={dateIcon}
+            alt="calendar"
+            className="absolute left-6 top-1/2 -translate-y-1/2 w-5 h-5 pointer-events-none"
+          />
+          <input
+            ref={ref}
+            value={value}
+            onClick={onClick}
+            onChange={onChange}
+            placeholder={placeholder}
+            id={id}
+            name={name}
+            // ملاحظة: نترك إمكانية الكتابة كما كانت؛ لذلك لا نضع readOnly
+            className="w-full px-6 py-3 text-text-2 bg-[#F3EFFD] border border-gray-200 rounded-full outline-0 pl-14"
+          />
+        </div>
+      );
+    }
+  );
 
   return (
     <div
@@ -593,10 +621,10 @@ const ServiceRequest = () => {
                 selected={formData.submission_deadline}
                 onChange={handleDateChange}
                 dateFormat="yyyy-MM-dd"
-                className="w-full px-6 py-3 text-text-2 bg-[#F3EFFD] border border-gray-200 rounded-full outline-0"
                 placeholderText="اختر التاريخ المناسب"
                 name="submission_deadline"
                 id="submission_deadline"
+                customInput={<CustomDateInput />}
               />
               {(errors.submission_deadline ||
                 inertiaErrors.submission_deadline) && (
@@ -613,7 +641,7 @@ const ServiceRequest = () => {
             <button
               type="submit"
               disabled={submitLoading}
-              className="px-18 py-3 mr-5 mt-2 bg-secondary text-white font-semibold rounded-full hover:bg-[#53419E] disabled:opacity-50 cursor-pointer"
+              className="px-20 py-3  mt-2 bg-secondary text-white font-semibold rounded-full hover:bg-[#53419E] disabled:opacity-50 cursor-pointer w-full sm:w-auto "
             >
               {submitLoading ? "جارٍ الإرسال..." : "إرسال"}
             </button>
