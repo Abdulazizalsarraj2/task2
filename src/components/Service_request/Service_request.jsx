@@ -446,7 +446,7 @@ const ServiceRequest = () => {
       dir="rtl"
       className="min-h-screen flex items-center justify-center p-4 sm:p-6 lg:p-8"
     >
-      <div className="w-[89vw] max-w-[90vw] bg-[#FBFAFF] rounded-lg shadow-md p-8">
+      <div className="w-[89vw] max-w-[90vw] bg-[#FBFAFF] rounded-lg shadow-md p-8 -mt-8">
         {/* <div className="text-white text-center w-[125px] py-3 px-3 mr-5 rounded-full bg-secondary mb-6">
           اطلب خدمة
         </div> */}

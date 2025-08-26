@@ -647,15 +647,15 @@ export default function Academy() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-y-6 gap-x-5">
           {filteredPlaylists.map((course) => (
             <Link to={`/playlist/${course.id}`} key={course.id} className="block">
-              <div className="bg-[#FEFEFF] p-1 rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300 cursor-pointer w-[90%] sm:w-full mx-auto">
+              <div className="bg-[#FEFEFF] p-2 rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300 cursor-pointer w-[90%] sm:w-full mx-auto">
                 <img
                   src={course.displayImage}
                   alt={course.name}
-                  className="w-full h-40 object-cover rounded-xl"
+                  className="w-full h-48 object-cover rounded-xl"
                 />
                 <div className="p-4">
                   <h3 className="text-lg font-bold mb-2 text-text-1">{course.name}</h3>
-                  <p className="text-text-2 text-sm leading-[1.75]">{course.description}</p>
+                  <p className="text-text-2 text-sm leading-[1.75] line-clamp-2">{course.description}</p>
                 </div>
               </div>
             </Link>

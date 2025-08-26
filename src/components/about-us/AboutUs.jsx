@@ -287,7 +287,7 @@ const AboutUs = () => {
           <h1 className="text-transparent text-4xl md:text-5xl bg-clip-text bg-gradient-to-r from-[#6161ff] to-[#8c6af9] font-bold text-center leading-normal mb-2">من نحن؟</h1>
           <div className="h-[5px] w-32 mx-auto -mt-[6px] bg-gradient-to-r from-[#6161ff] to-[#8c6af9] rounded-full" />
           <p className="max-w-[657px] mx-auto text-sm lg:text-xl text-center text-[#7B7790] font-medium mt-8 leading-[1.75]">
-            هي شركة تقنية تقدّم حلولًا رقمية متكاملة تشمل البرمجة، التصميم، الاستشارات، التدريب، والدعم الفني، من خلال فريق احترافي يعمل بأسلوب مرن Teknova شركة
+            نحن شركة تقنية تقدّم حلولًا رقمية متكاملة تشمل البرمجة، التصميم، الاستشارات، التدريب، والدعم الفني، من خلال فريق احترافي يعمل بأسلوب مرن Teknova شركة
           </p>
         </div>
 

@@ -1,6 +1,6 @@
 /** @format */
 import React from "react";
-import leftside from "../../assets/auth/Group 137.png";
+import leftside from "../../assets/auth/Group 137.svg";
 import rightside from "../../assets/auth/Ellipse 4.png";
 
 export default function AuthLayout({ title, subtitle, children, titleSize = "4xl" }) {

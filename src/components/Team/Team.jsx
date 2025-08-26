@@ -149,7 +149,7 @@ const Team = () => {
 
   return (
     <div className="mt-[103px] mb-28">
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 p-6 px-12">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-[30px] gap-y-[35px] p-6 px-12">
         {loading ? (
           <p className="col-span-full text-center">جاري تحميل البيانات...</p>
         ) : (

@@ -490,7 +490,8 @@
 
 import React, { useState, useEffect } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
-import { GET } from "../../services/http.service";
+import { GET, POST } from "../../services/http.service";
+import {successToaster, errorToaster} from "../../helpers/toasterConfiguration"
 import CourseImage from "../../assets/img-card.svg";
 import { useSelector } from "react-redux";
 
@@ -600,12 +601,29 @@ const PlaylistDetails = () => {
   };
 
   // ✅ دالة عند الضغط على زر "طلب الكورس"
-  const handleRequestCourse = () => {
+  const handleRequestCourse = async () => {
     if (!isAuthenticated) {
       navigate("/login"); // توجيه لصفحة تسجيل الدخول
     } else {
       // هنا ممكن تضيف لوجيك شراء الكورس لاحقاً
-      console.log("طلب الكورس...");
+      // **إضافة مطلوبة**: إرسال طلب إلى endpoint baseURL/playlist-requests مع تمرير playlist_id في الـ body
+      // ملاحظة: Authorization Bearer token يُرسل تلقائياً عبر axios interceptor من http.service
+      try {
+        const resp = await POST("playlist-requests", { playlist_id: playlistId });
+        const respData = resp?.data || {};
+        const message =
+          respData?.message ||
+          "تم إرسال طلب الانضمام إلى الكورس بنجاح";
+        successToaster(message);
+        console.log("طلب الكورس... تم الإرسال", respData);
+      } catch (err) {
+        const msg =
+          err?.message ||
+          err?.data?.message ||
+          "تعذر إرسال طلب الكورس، حاول مرة أخرى.";
+        errorToaster(msg);
+        console.error("طلب الكورس... فشل الإرسال:", err);
+      }
     }
   };
 
@@ -708,7 +726,7 @@ const PlaylistDetails = () => {
             </div>
 
             {/* وصف الفيديو / الكورس */}
-            <div className="mt-12 bg-white p-6 rounded-xl drop-shadow-2xl">
+            <div className="mt-12 bg-white p-6 rounded-xl drop-shadow-xl">
               <h1 dir="rtl" className="text-2xl font-bold text-text-1 mb-2">
                 {currentVideo ? currentVideo.title : playlist.name}
               </h1>
@@ -785,4 +803,5 @@ const PlaylistDetails = () => {
 };
 
 export default PlaylistDetails;
+
 

@@ -304,6 +304,7 @@ export default function Navbar() {
             <button
               dir="rtl"
               className="flex items-center gap-2 bg-[#9E7BFF] text-white text-xs xl:text-sm px-3 py-1 lg:px-5 lg:py-2 rounded-full shadow hover:bg-[#53419E] transition-all cursor-pointer"
+           onClick={() => navigate('/service_request')}
             >
               <img src={PhoneIcon} alt="phone-icon" className="w-4 ml-1" />
               <span className="material-icons text-sm xl:text-base">
