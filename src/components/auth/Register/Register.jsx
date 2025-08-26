@@ -171,13 +171,21 @@
 
 
 import React, { useState, useEffect } from "react";
+
 import { useForm } from "react-hook-form";
+
 import { yupResolver } from "@hookform/resolvers/yup";
+
 import { registerSchema } from "../../../validation/registerSchema.js";
+
 import { Eye, EyeOff } from "lucide-react";
+
 import AuthLayout from "../../layout/AuthLayout";
+
 import { useDispatch, useSelector } from "react-redux";
+
 import { registerUser } from "../../../store/auth/action/registerAction.js";
+
 import { useNavigate, NavLink } from "react-router-dom";
 
 function InputField({ label, type = "text", placeholder = "", name, register, errors, serverErrors }) {
@@ -309,7 +317,7 @@ export default function Register() {
           </div>
 
           {errors.password && <p className="text-red-500 text-xs mt-1">{errors.password.message}</p>}
-          
+
           {serverErrors && serverErrors.password && serverErrors.password.map((msg, i) => (
             <p key={i} className="text-red-500 text-xs mt-1">{msg}</p>
           ))}
@@ -324,12 +332,8 @@ export default function Register() {
           errors={errors}
           serverErrors={serverErrors}
         />
-     <div dir="rtl" className="text-sm -mt-3 mb-3">
-          <NavLink to='/login' className="text-[#7056CC] underline font-bold">
-          هل لديك حساب بالفعل؟
-          </NavLink>
-        </div>
-        
+
+
         {message && <p className="text-green-600 text-center text-lg font-bold mb-4">{message}</p>}
 
         <button
@@ -339,6 +343,12 @@ export default function Register() {
         >
           {isLoading ? "جاري إنشاء الحساب..." : "إنشاء حساب"}
         </button>
+                <div dir="rtl" className="text-sm text-center mt-10 ">
+          لديك حساب؟
+          <NavLink to="/login" className="text-[#7056CC] underline font-bold mr-1">
+            سجل دخول
+            </NavLink>
+          </div>
       </form>
     </AuthLayout>
   );

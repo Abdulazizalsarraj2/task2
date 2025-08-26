@@ -119,13 +119,21 @@
 
 /** @format */
 import React, { useState, useEffect } from "react";
+
 import { useForm } from "react-hook-form";
+
 import { yupResolver } from "@hookform/resolvers/yup";
+
 import { loginSchema } from "../../../validation/loginSchema";
+
 import { Eye, EyeOff } from "lucide-react";
+
 import AuthLayout from "../../layout/AuthLayout";
+
 import { useDispatch, useSelector } from "react-redux";
+
 import { useNavigate, NavLink } from "react-router-dom";
+
 import { loginUser } from "../../../store/auth/action/loginAction";
 
 function InputField({
@@ -224,9 +232,6 @@ export default function Login() {
         />
 
         <div className="w-full mb-6 relative">
-          {/* <label className="absolute -top-3 right-3 bg-white px-2 text-sm text-[#7056CC] font-medium select-none">
-            كلمة المرور
-          </label> */}
           <div
             className={`flex items-center border ${
               errors.password || error?.errors?.password
@@ -264,19 +269,15 @@ export default function Login() {
             </p>
           )}
         </div>
-        <div dir="rtl" className="flex items-center justify-between mb-3">
-          <div dir="rtl" className="text-sm ">
-            <NavLink to="/register" className="text-[#7056CC] underline font-bold">
-              ليس لديك حساب؟
-            </NavLink>
-          </div>
+        
+  
 
-          <div className="text-sm ">
+          <div className="text-sm mb-6 ">
             <a href="#" className="text-[#7056CC] underline font-bold">
               نسيت كلمة المرور ؟
             </a>
           </div>
-        </div>
+  
 
         <button
           type="submit"
@@ -285,6 +286,13 @@ export default function Login() {
         >
           {isLoading ? "جاري تسجيل الدخول..." : "تسجيل الدخول"}
         </button>
+
+        <div dir="rtl" className="text-sm text-center mt-10 ">
+              ليس لديك حساب؟
+          <NavLink to="/register" className="text-[#7056CC] underline font-bold mr-1">
+            سجل الآن
+            </NavLink>
+          </div>
       </form>
     </AuthLayout>
   );

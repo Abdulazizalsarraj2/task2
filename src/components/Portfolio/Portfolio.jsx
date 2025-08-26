@@ -1004,7 +1004,7 @@ export default function Portfolio() {
     <section className="relative flex flex-col items-center justify-center w-full mb-40 mt-30" dir="rtl">
       <div className="w-[90%] max-w-7xl mx-auto px-2 sm:px-4">
         {/* Dropdown لتصفية الخدمات */}
-        <div className="mb-8 w-[90%] mx-auto sm:w-full sm:max-w-96 sm:mx-0" ref={dropdownRef}>
+        <div className="mb-8 w-full mx-auto sm:w-full sm:max-w-96 sm:mx-0" ref={dropdownRef}>
           <div
             onClick={() => setIsOpen(!isOpen)}
             className="bg-[#F3EFFD] border border-gray-200 rounded-3xl cursor-pointer overflow-hidden transition-all duration-300"

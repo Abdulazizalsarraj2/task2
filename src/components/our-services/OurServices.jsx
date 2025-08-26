@@ -77,11 +77,11 @@ export default function ServicesSection() {
         <div className="h-[5px] w-32 mx-auto -mt-[6px] bg-gradient-to-r from-[#6161ff] to-[#8c6af9] rounded-full" />
       </div>
 
-      <div className="grid gap-y-[35px]  gap-x-[30px] md:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-16">
+      <div className="flex flex-col items-center sm:grid sm:gap-y-[35px] sm:gap-x-[30px] md:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto sm:mx-16">
         {services.map(({ name, description, icon }, idx) => (
           <div
             key={idx}
-            className="relative bg-white rounded-[16px] shadow-sm p-5 flex flex-col gap-6 items-center transition hover:shadow-md ring-[0.1px] ring-[#362963]"
+            className="w-[90%] sm:w-auto relative bg-white rounded-[16px] shadow-sm p-5 flex flex-col gap-6 items-center transition hover:shadow-md ring-[0.1px] ring-[#362963] mb-6 sm:mb-0"
           >
             <img src={icon} className=" w-13 h-13 " />
 
